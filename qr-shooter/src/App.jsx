@@ -4,7 +4,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Index from './Pages/Index';
-import ForgotPassword from './Pages/ForgotPassword';
+import ForgotPassword from './Pages/Forgotpassword';
 
 function App() {
   return (
