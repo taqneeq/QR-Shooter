@@ -10,6 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        
       <Route path="/" element={<Index />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Index" element={<Index />} />
