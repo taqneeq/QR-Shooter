@@ -1,8 +1,28 @@
-import React from 'react'
-import '../styles/login.css'
+import React, { useState } from 'react';
+import '../styles/login.css';
 import background from '../assets/background.mp4';
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext'; // Import UserAuth instead of createUser
 
 const Register = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { createUser } = UserAuth(); // Destructure createUser from the UserAuth hook
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    try {
+      await createUser(email, password);
+      navigate('/Home');
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
+  };
     return (
 <>
     <div className="background">
@@ -11,22 +31,23 @@ const Register = () => {
       <div className="grid">
       <h1>Hello</h1>
         <h2>Register To Continue </h2>
-        <form className="form login">
+        <form className="form login" onSubmit={handleSubmit}>
           <div className="form__field">
             <label htmlFor="login__username">
               <svg className="icon">
                 <use xlinkHref="#icon-user"></use>
               </svg>
-              <span className="hidden">Username</span>
+              <span className="hidden">Email</span>
             </label>
             <input
               autoComplete="username"
-              id="login__username"
+              id="email"
               type="text"
               name="username"
               className="form__input"
               placeholder="Username"
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -38,35 +59,20 @@ const Register = () => {
               <span className="hidden">Password</span>
             </label>
             <input
-              id="login__password"
+              id="password"
               type="password"
               name="password"
               className="form__input"
               placeholder="Password"
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          <div className="form__field">
-            <label htmlFor="login__password">
-              <svg className="icon">
-                <use xlinkHref="#icon-lock"></use>
-              </svg>
-              <span className="hidden">Repeat Password</span>
-            </label>
-            <input
-              id="login__password"
-              type="password"
-              name="repeat-password"
-              className="form__input"
-              placeholder="Repeat Password"
-              required
-            />
-          </div>
-
+        
 
           <div className="form__field">
-            <input type="submit" value="Sign In" />
+            <input type="submit" value="Sign Up" />
           </div>
         </form>
 

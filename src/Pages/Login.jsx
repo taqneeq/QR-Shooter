@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/login.css'
 import background from '../assets/background.mp4';
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext'; // Import UserAuth instead of createUser
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { SignIn } = UserAuth(); // Destructure createUser from the UserAuth hook
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    try {
+      await SignIn(email, password);
+      navigate('/Home');
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
+  };
+
+
+
   return (
     <>
     <div className="background">
@@ -11,7 +34,7 @@ const Login = () => {
       <div className="grid">
       <h1>Hello</h1>
         <h2>Sign in to your account</h2>
-        <form className="form login">
+        <form className="form login" onSubmit={handleSubmit}>
           <div className="form__field">
             <label htmlFor="login__username">
               <svg className="icon">
@@ -20,13 +43,15 @@ const Login = () => {
               <span className="hidden">Username</span>
             </label>
             <input
-              autoComplete="username"
-              id="login__username"
+              autoComplete="Email"
+              id="email"
               type="text"
-              name="username"
+              name="emeail"
               className="form__input"
-              placeholder="Username"
+              placeholder="Email"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -38,12 +63,15 @@ const Login = () => {
               <span className="hidden">Password</span>
             </label>
             <input
-              id="login__password"
+              id="password"
               type="password"
               name="password"
               className="form__input"
               placeholder="Password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+
             />
           </div>
 
