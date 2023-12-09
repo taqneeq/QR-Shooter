@@ -17,9 +17,9 @@ function App() {
           <Route
             path="/Home"
             element={
-              <ProtectedRoutes>
+       
                 <Home />
-              </ProtectedRoutes>
+          
             }
           />
           <Route path="/Index" element={<Index />} />
