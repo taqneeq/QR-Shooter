@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useLayoutEffect, useRef, useState} from 'react';
 // import { UserAuth } from '../context/AuthContext';
 import { Carousel } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
@@ -12,10 +12,14 @@ import {
   FaTrophy,
   FaCalendarAlt,
 } from 'react-icons/fa';
+import gsap from 'gsap/gsap-core';
 
 const Home = () => {
   // const { user, logout } = UserAuth();
   const Navigate = useNavigate();
+
+
+  
 
   const HandleLogout = async () => {
     try {
@@ -136,9 +140,10 @@ const Home = () => {
   );
 };
 const EventBox = ({ icon, title}) => {
+
   return (
     <div
-      className={` bg-QR bg-cover bg-opacity-40 bg-no-repeat sepia-50 rounded-md flex flex-col items-center justify-center w-full shadow-md px-20 py-6 bg-gray-800`}
+      className={`event-box animate-fade-up   bg-QR bg-cover bg-opacity-40 bg-no-repeat sepia-50 rounded-md flex flex-col items-center justify-center w-full shadow-md px-20 py-6 bg-gray-800`}
     >
       <div className="text-center text-white">
         <h1 className="text-2xl font-bold mt-4">{title}</h1>

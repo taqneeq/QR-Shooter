@@ -9,15 +9,32 @@ export default withMT({
         "Schedule" :""
       },
       keyframes: {
-        bgMoving: {
-          from: { 'background-position': '0% 0%' },
-          to: { 'background-position': '100% 0% ' },
+        'fade-up': {
+          '0%': { transform: 'translateY(8px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 }
         },
+        'fade-down': {
+          '0%': { transform: 'translateY(-4px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 }
+        },
+        'fade-right': {
+          '0%': { transform: 'translateX(-4px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 }
+        },
+        'fade-left': {
+          '0%': { transform: 'translateX(4px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 }
+        }
       },
-    },
-    animation: {
-      bgMoving: 'bgMoving 7s ease infinite',
-    },
+    
+      animation: {
+        'fade-up': 'fade-up 300ms backwards',
+        'fade-down': 'fade-down 400ms backwards',
+        'fade-right': 'fade-right 400ms backwards',
+        'fade-left': 'fade-left 400ms backwards'
+      }
+    }
   },
-  plugins: [],
+
+  plugins: [require('tailwindcss-animation-delay')]
 });
