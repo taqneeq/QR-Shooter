@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../styles/login.css';
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext'; // Import UserAuth instead of createUser
 import gsap from 'gsap/gsap-core';
