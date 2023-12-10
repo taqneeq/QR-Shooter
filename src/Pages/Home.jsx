@@ -50,115 +50,120 @@ const Home = () => {
 
   return (
     <>
-      <div className=" bg-opacity-10 bg-gray-300 bg-mesh flex flex-col gap-5 justify-center">
-        <h1 className="p-4 text-4xl text-center text-gray-800 font-bold ">
-          TAQNEEQ 16.0
-        </h1>
-
-        <div className="mx-auto flex min-h-screen max-h-screen w-full max-w-screen-lg  flex-col gap-5 px-6 lg:px-0">
-          <h1>
-            Hey There <br></br> Welcome TO Taqneeq Fest{' '}
+      <div className="min-h-screen flex flex-col m-auto items-center justify-center bg-tq-base p-6">
+        <div className="flex min-h-fit w-full flex-col items-center rounded-2x py-8 text-center md:block bg-tq-base">
+          <h1 className=" text-4xl font-black text-gray-900 text-center  md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
+            Taqneeq Fest
           </h1>
-
-          <Carousel
-            transition={{ duration: 2 }}
-            autoplay="true"
-            loop="true"
-            autoplayDelay="10000"
-            className="rounded-xl mx-auto max-h-[30rem] overflow-hidden"
-            ref={boxRef}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-              alt="image 1"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-              alt="image 2"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-              alt="image 3"
-              className="h-full w-full object-cover"
-            />
-          </Carousel>
-
-          <div className=" grid grid-cols-2 min-w-full gap-6 ">
-            <EventBox
-              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
-              url=""
-              title="Schedule "
-              num={1.5}
-            ></EventBox>
-            <EventBox
-              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
-              url=""
-              title="My QR"
-              num={2.5}
-            ></EventBox>
-            <EventBox
-              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
-              url=""
-              title="Redeem Here"
-              num={3.5}
-            ></EventBox>
-            <EventBox
-              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
-              url=""
-              title=" Contact Us"
-              num={4.5}
-            ></EventBox>
-          </div>
-          <div className="fixed z-50 w-full max-w-lg -translate-x-1/2 bg-gray-900  rounded-full bottom-4 left-1/2 flex justify-between mx-auto px-4 py-2">
-            <button
-              data-tooltip-target="tooltip-home"
-              type="button"
-              className="flex flex-col items-center justify-center px-4 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
+          <div className="mx-auto flex min-h-screen max-h-screen w-full   flex-col gap-5 px-6 lg:px-0">
+            <Carousel
+              transition={{ duration: 2 }}
+              autoplay="true"
+              loop="true"
+              autoplayDelay="10000"
+              className="rounded-xl mx-auto max-h-[10rem] md:min-h-[70vh] overflow-hidden "
+              ref={boxRef}
             >
-              <FaHome size={20} color="white" />
-              <span className="sr-only">Home</span>
-            </button>
+              <img
+                src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+                alt="image 1"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+                alt="image 2"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+                alt="image 3"
+                className="h-full w-full object-cover"
+              />
+            </Carousel>
 
-            <button
-              data-tooltip-target="tooltip-wallet"
-              type="button"
-              className="flex flex-col items-center justify-center px-4 hover:bg-gray-50 dark:hover:bg-gray-800 group"
-            >
-              <FaCalendarAlt size={20} color="white" />
-              <span className="sr-only">Schedule</span>
-            </button>
+            <div className=" grid grid-cols-3 min-w-full gap-6 ">
+              <EventBox
+                icon="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+                url=""
+                title="Schedule "
+                num={1.5}
+              ></EventBox>
+              <EventBox
+                icon="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+                url=""
+                title="Schedule "
+                num={1.5}
+              ></EventBox>
+              <EventBox
+                icon="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+                url=""
+                title="Schedule "
+                num={1.5}
+              ></EventBox>
+              <EventBox
+                icon="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+                url=""
+                title="Schedule "
+                num={1.5}
+              ></EventBox>
 
-            <button
-              data-tooltip-target="tooltip-new"
-              type="button"
-              data-te-toggle="tooltip"
-              data-te-placement="top"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-              title="Tooltip on top"
-              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
-            >
-              <FaTrophy size={20} color="white" />
-              <span className="sr-only">LeaderBoard</span>
-            </button>
+              <EventBox
+                icon="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+                url=""
+                title="Scheduleewe "
+                num={1.5}
+                className="col-span-2"
+              ></EventBox>
+            </div>
+            {/* <div className="fixed z-50 w-full max-w-lg -translate-x-1/2 bg-gray-900  rounded-full bottom-4 left-1/2 flex justify-between mx-auto px-4 py-2">
+              <button
+                data-tooltip-target="tooltip-home"
+                type="button"
+                className="flex flex-col items-center justify-center px-4 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
+              >
+                <FaHome size={20} color="white" />
+                <span className="sr-only">Home</span>
+              </button>
 
-            <button
-              data-tooltip-target="tooltip-profile"
-              type="button"
-              className="flex flex-col items-center justify-center px-4 hover:bg-gray-50 dark:hover:bg-gray-800 group"
-            >
-              <FaUser size={20} color="white"></FaUser>
-              <span className="sr-only">Profile</span>
-            </button>
+              <button
+                data-tooltip-target="tooltip-wallet"
+                type="button"
+                className="flex flex-col items-center justify-center px-4 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+              >
+                <FaCalendarAlt size={20} color="white" />
+                <span className="sr-only">Schedule</span>
+              </button>
+
+              <button
+                data-tooltip-target="tooltip-new"
+                type="button"
+                data-te-toggle="tooltip"
+                data-te-placement="top"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                title="Tooltip on top"
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
+              >
+                <FaTrophy size={20} color="white" />
+                <span className="sr-only">LeaderBoard</span>
+              </button>
+
+              <button
+                data-tooltip-target="tooltip-profile"
+                type="button"
+                className="flex flex-col items-center justify-center px-4 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+              >
+                <FaUser size={20} color="white"></FaUser>
+                <span className="sr-only">Profile</span>
+              </button>
+            </div> */}
           </div>
         </div>
       </div>
     </>
   );
 };
-const EventBox = ({ image, url, title, num }) => {
+const EventBox = ({ icon, url, title, num }) => {
   // variable height and width
   const card = useRef();
   const delay = 0.9 * num; // Adjust the delay as needed
@@ -177,19 +182,12 @@ const EventBox = ({ image, url, title, num }) => {
     <Card
       shadow={false}
       ref={card}
-      className="group relative grid h-[12rem] md:h-[17rem] w-full max-w-[12rem] md:max-w-[25rem] items-end justify-center overflow-hidden text-center"
+      className="group relative grid h-[12rem] md:h-[17rem] w-full items-end justify-center overflow-hidden text-center"
     >
-      <CardHeader
-        floated={false}
-        shadow={false}
-        color="transparent"
-        style={{ backgroundImage: `url(${image})` }}
-        className={`absolute inset-0 m-0 h-full w-full rounded-none bg-[url('${image}')] bg-cover bg-center`}
-      >
-        <div className="absolute inset-0 h-full w-full bg-black opacity-50" />
-      </CardHeader>
       <CardBody className="relative py-14 px-6 md:px-12">
-        <h1 className=" text-white mb-6 font-medium leading-[1.5]">{title} </h1>
+        <h1 className=" text-tq-text mb-6 font-medium leading-[1.5]">
+          {title}jdskdjks{' '}
+        </h1>
       </CardBody>
     </Card>
   );

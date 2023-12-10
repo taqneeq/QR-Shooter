@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Causten-SO';
+  src: url('../public/fonts/Causten-Semi-Bold-Oblique.ttf');
+}
+@font-face {
+  font-family: 'Causten-S';
+  src: url('../public/fonts/Causten-Semi-Bold.ttf');
+}
+@font-face {
+  font-family: 'VanguardCF';
+  src: url('../public/fonts/VanguardCF-Bold.otf');
+}
+* {
+  font-family: 'Causten-S', sans-serif;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Causten-S', sans-serif;
+}
+
 /* html,
 body {
 	margin: 0;
@@ -19,8 +41,8 @@ body {
 	object-fit: cover;
 } */
 
-*{
-	font-family: "General Sans", sans-serif;
+* {
+  font-family: 'General Sans', sans-serif;
 }
 /* 
 .content {
