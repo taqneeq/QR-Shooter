@@ -58,9 +58,9 @@ const Home = () => {
           <div className="mx-auto flex min-h-screen max-h-screen w-full   flex-col gap-5 px-6 lg:px-0">
             <Carousel
               transition={{ duration: 2 }}
-              autoplay="true"
-              loop="true"
-              autoplayDelay="10000"
+              autoplay
+              loop
+              autoplayDelay={10000}
               className="rounded-xl mx-auto max-h-[10rem] md:min-h-[70vh] overflow-hidden "
               ref={boxRef}
             >

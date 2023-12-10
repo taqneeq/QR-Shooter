@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/index.css';
-import background from '../assets/background.mp4';
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 

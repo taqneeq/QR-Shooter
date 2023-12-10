@@ -4,15 +4,15 @@
 
 @font-face {
   font-family: 'Causten-SO';
-  src: url('../public/fonts/Causten-Semi-Bold-Oblique.ttf');
+  src: url('/fonts/Causten-Semi-Bold-Oblique.ttf');
 }
 @font-face {
   font-family: 'Causten-S';
-  src: url('../public/fonts/Causten-Semi-Bold.ttf');
+  src: url('fonts/Causten-Semi-Bold.ttf');
 }
 @font-face {
   font-family: 'VanguardCF';
-  src: url('../public/fonts/VanguardCF-Bold.otf');
+  src: url('fonts/VanguardCF-Bold.otf');
 }
 * {
   font-family: 'Causten-S', sans-serif;
