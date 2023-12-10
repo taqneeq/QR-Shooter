@@ -1,6 +1,13 @@
-import {React,useLayoutEffect, useRef, useState} from 'react';
+import { React, useLayoutEffect, useRef, useState } from 'react';
 // import { UserAuth } from '../context/AuthContext';
 import { Carousel } from '@material-tailwind/react';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Avatar,
+} from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 import {
   FaRegCalendarAlt,
@@ -16,10 +23,20 @@ import gsap from 'gsap/gsap-core';
 
 const Home = () => {
   // const { user, logout } = UserAuth();
+  const boxRef = useRef(null);
+  useLayoutEffect(() => {
+    const box = boxRef.current;
+    gsap.set(box, { opacity: 0 });
+
+    gsap.to(box, {
+      opacity: 1,
+      duration: 0.9,
+      delay: 0.5,
+      ease: 'power2.inOut',
+    });
+  }, []);
+
   const Navigate = useNavigate();
-
-
-  
 
   const HandleLogout = async () => {
     try {
@@ -33,29 +50,24 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-slate-200 flex flex-col gap-5 justify-center">
+      <div className=" bg-opacity-10 bg-gray-300 bg-mesh flex flex-col gap-5 justify-center">
         <h1 className="p-4 text-4xl text-center text-gray-800 font-bold ">
           TAQNEEQ 16.0
         </h1>
 
-        <div className=" m-auto md:min-h-screen w-full bg-transparent px-8 py-8 max-w-screen-sm mx-auto lg:py-10">
-          <div className="flex justify-center md:justify-around">
-            <div className="p-4">
-              <p className="text-2xl text-blue-950 font-bold">Hey,xyz</p>
-              <p className="text-xl text-blue-800 font-semibold">
-                Welcome to the Taqneeq Fest
-              </p>
-            </div>
-            <div>
-              <img
-                src="logo.png"
-                alt="Fest Logo"
-                className=" max-w-[10rem] rounded-xl"
-              />
-            </div>
-          </div>
+        <div className="mx-auto flex min-h-screen max-h-screen w-full max-w-screen-lg  flex-col gap-5 px-6 lg:px-0">
+          <h1>
+            Hey There <br></br> Welcome TO Taqneeq Fest{' '}
+          </h1>
 
-          <Carousel className="rounded-xl mx-auto">
+          <Carousel
+            transition={{ duration: 2 }}
+            autoplay="true"
+            loop="true"
+            autoplayDelay="10000"
+            className="rounded-xl mx-auto max-h-[30rem] overflow-hidden"
+            ref={boxRef}
+          >
             <img
               src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
               alt="image 1"
@@ -73,31 +85,33 @@ const Home = () => {
             />
           </Carousel>
 
-          {/* Box Components */}
-          <div className="grid grid-cols-2 gap-6 p-8 w-screen mx-8 rounded-md">
-            {/* Additional Boxes */}
+          <div className=" grid grid-cols-2 min-w-full gap-6 ">
             <EventBox
-              icon="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-              title="QR"
-            />
+              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+              url=""
+              title="Schedule "
+              num={1.5}
+            ></EventBox>
             <EventBox
-              icon="https://images.unsplash.com/photo-1685575112968-7dd67bc447b4?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+              url=""
+              title="My QR"
+              num={2.5}
+            ></EventBox>
+            <EventBox
+              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+              url=""
               title="Redeem Here"
-            />
+              num={3.5}
+            ></EventBox>
             <EventBox
-              icon="https://images.unsplash.com/photo-1685575112968-7dd67bc447b4?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              title="Contact Us"
-            />
+              image="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D"
+              url=""
+              title=" Contact Us"
+              num={4.5}
+            ></EventBox>
           </div>
-
-          {/* <footer className='absolute bottom-0 left-0 w-full bg-gray-800 p-4 md:hidden flex justify-around text-white z-100'>
-      <BottomNavItem icon={<FaUser size={25}/>} label='Profile' />
-      <BottomNavItem icon={<FaHome size={25}/>} label='Home' />
-      <BottomNavItem icon={<FaTrophy size={25}/>} label='Leaderboard' />
-      <BottomNavItem icon={<FaRegCalendarAlt size={25}/>} label='Schedule' />
-    </footer> */}
-
-          <div className="fixed z-50 w-full max-w-lg -translate-x-1/2 bg-gray-300 border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600 flex justify-between mx-auto px-4 py-2">
+          <div className="fixed z-50 w-full max-w-lg -translate-x-1/2 bg-gray-900  rounded-full bottom-4 left-1/2 flex justify-between mx-auto px-4 py-2">
             <button
               data-tooltip-target="tooltip-home"
               type="button"
@@ -119,6 +133,11 @@ const Home = () => {
             <button
               data-tooltip-target="tooltip-new"
               type="button"
+              data-te-toggle="tooltip"
+              data-te-placement="top"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+              title="Tooltip on top"
               className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
             >
               <FaTrophy size={20} color="white" />
@@ -139,16 +158,40 @@ const Home = () => {
     </>
   );
 };
-const EventBox = ({ icon, title}) => {
+const EventBox = ({ image, url, title, num }) => {
+  // variable height and width
+  const card = useRef();
+  const delay = 0.9 * num; // Adjust the delay as needed
+
+  useLayoutEffect(() => {
+    gsap.set(card, { opacity: 0 });
+
+    gsap.fromTo(
+      card.current,
+      { opacity: 0 }, // Initial values
+      { opacity: 1, duration: 0.3, delay }, // Target values
+    );
+  }, [delay]);
 
   return (
-    <div
-      className={`event-box animate-fade-up   bg-QR bg-cover bg-opacity-40 bg-no-repeat sepia-50 rounded-md flex flex-col items-center justify-center w-full shadow-md px-20 py-6 bg-gray-800`}
+    <Card
+      shadow={false}
+      ref={card}
+      className="group relative grid h-[12rem] md:h-[17rem] w-full max-w-[12rem] md:max-w-[25rem] items-end justify-center overflow-hidden text-center"
     >
-      <div className="text-center text-white">
-        <h1 className="text-2xl font-bold mt-4">{title}</h1>
-      </div>
-    </div>
+      <CardHeader
+        floated={false}
+        shadow={false}
+        color="transparent"
+        style={{ backgroundImage: `url(${image})` }}
+        className={`absolute inset-0 m-0 h-full w-full rounded-none bg-[url('${image}')] bg-cover bg-center`}
+      >
+        <div className="absolute inset-0 h-full w-full bg-black opacity-50" />
+      </CardHeader>
+      <CardBody className="relative py-14 px-6 md:px-12">
+        <h1 className=" text-white mb-6 font-medium leading-[1.5]">{title} </h1>
+      </CardBody>
+    </Card>
   );
 };
 

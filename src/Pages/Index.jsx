@@ -38,7 +38,7 @@ const Index = () => {
             className="flex min-h-fit min-w-[93vw] flex-col items-center rounded-2xl p-10 text-center md:block md:min-w-[50vw] md:bg-[#f5f5f5] md:bg-opacity-20 md:p-20 md:backdrop-blur-lg md:backdrop-filter "
             ref={boxRef}
           >
-            <h1 className=" text-4xl font-black text-slate-200 md:m-6 md:text-6xl lg:text-7xl">
+            <h1 className=" text-4xl font-black text-gray-900 md:text-slate-200 mb-5 md:mb-20 md:text-6xl lg:text-7xl">
               Welcome to <br></br>Taqneeq Fest's <br /> QR Shooter
             </h1>
 

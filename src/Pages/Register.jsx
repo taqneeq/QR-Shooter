@@ -38,6 +38,7 @@ const Register = () => {
       ease: 'power2.inOut',
     });
   }, []);
+  
   return (
     <>
       <div className="relative min-h-screen bg-black">

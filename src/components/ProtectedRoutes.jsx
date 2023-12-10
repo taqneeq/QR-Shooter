@@ -8,5 +8,6 @@ const ProtectedRoutes = ({ children }) => {
   }
   return children;
 };
+//import this is in navbar
 
 export default ProtectedRoutes;
