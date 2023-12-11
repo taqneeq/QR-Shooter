@@ -1,11 +1,22 @@
 import { UserAuth } from '../context/AuthContext';
 import QRCode from 'react-qr-code';
+import { Link } from 'react-router-dom';
+import { BsArrowLeft } from 'react-icons/bs';
 
 const QR = () => {
   const { user } = UserAuth();
 
   return (
-    <div className="bg-tq-base h-screen  text-lg flex flex-col justify-center items-center p-4">
+    <div className="bg-tq-base  p-4">
+       <div className="flex items-center mb-4">
+        <Link to="/Home" className="flex items-center text-tq-blue">
+          <BsArrowLeft className="mr-1" />
+          Back to Home
+        </Link>
+      </div>
+      <div className='h-screen  text-lg flex flex-col justify-center items-center'>
+        
+    
       {user.uid ? (
         <div className="flex flex-col items-center">
           <h1 className="text-3xl text-tq-text mb-4">
@@ -22,6 +33,7 @@ const QR = () => {
       <p className="text-tq-red mt-8 cursor-pointer hover:underline">
         Show this to OC to gain or redeem points!
       </p>
+      </div>
     </div>
   );
 };
