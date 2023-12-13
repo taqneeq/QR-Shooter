@@ -18,22 +18,14 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route
             path="/Home"
-            element={
-       //Remember to add protected routes
-                <Home />
-          
-            }
+            element={<ProtectedRoutes><Home /></ProtectedRoutes> }
           />
           <Route path="/Index" element={<Index />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path='/my-qr' element={
-          //Add protected routes
-          <QR/>}/>
-             <Route path='/schedule' element={
-          //Add protected routes
-          <Schedule/>}/>
+          <Route path='/my-qr' element={<ProtectedRoutes><QR/></ProtectedRoutes> }/>
+             <Route path='/schedule' element={<ProtectedRoutes><Schedule/></ProtectedRoutes> }/>
         </Routes>
       </Router>
     </AuthContextProvider>
