@@ -1,88 +1,26 @@
-html, body {margin: 0; height: 100%; overflow: hidden}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.main{
-    width: 100%;
-    height: 100vh;
-
+@font-face {
+  font-family: 'Causten-SO';
+  src: url('/fonts/Causten-Semi-Bold-Oblique.ttf');
+}
+@font-face {
+  font-family: 'Causten-S';
+  src: url('fonts/Causten-Semi-Bold.ttf');
+}
+@font-face {
+  font-family: 'VanguardCF';
+  src: url('fonts/VanguardCF-Bold.otf');
 }
 
-video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+* {
+  font-family: 'Causten-S', sans-serif;
 }
-
-h1,h2{
-    color: white;
-}
-
-.content{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: 'Satoshi', sans-serif;
-
-}
-
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
-
-.btn{
-width: 331px;
-height: 60px;
-border-radius: 8px;
-background: var(--Dark, #1E232C);
-color: var(--White, #FFF);
-text-align: center;
-padding-top:20px;
-margin-bottom: 10px;
-text-decoration: none;
-}
-
-.btn-1{
-    width: 331px;
-    height: 60px;
-    border-radius: 8px;
-    color: black;
-    background: var(--White, #FFF);    text-align: center;
-    padding-top:20px;
-    text-decoration: none;
-
-    }
-
-.inputstuff{
-margin-bottom:10px;
-width: 331px;
-height: 56px;
-border-radius: 8px;
-border: 1px solid var(--Border, #E8ECF4);
-background: #F7F8F9;
-padding-right: 10px;
-}
-
-.login-btn{
-    margin-bottom:10px;
-    width: 331px;
-    height: 50px;
-    border-radius: 8px;
-    background: var(--Dark, #1E232C);   
-    padding-right: 10px;
-    color: white;
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Causten-S', sans-serif;
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/login.css'
-import background from '../assets/background.mp4';
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext'; // Import UserAuth instead of createUser
+import gsap from 'gsap/gsap-core';
+import { useLayoutEffect, useRef } from 'react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,87 +23,96 @@ const Login = () => {
       console.log(e.message);
     }
   };
+  const boxRef = useRef(null);
+  useLayoutEffect(() => {
+    const box = boxRef.current;
+    gsap.set(box, { opacity: 0 });
 
-
+    gsap.to(box, {
+      opacity: 1,
+      duration: 1.5,
+      delay: 0.5,
+      ease: 'power2.inOut',
+    });
+  }, []);
 
   return (
     <>
-    <div className="background">
-      <video src={background} autoPlay loop muted />
-    <body className="align">
-      <div className="grid">
-      <h1>Hello</h1>
-        <h2>Sign in to your account</h2>
-        <form className="form login" onSubmit={handleSubmit}>
-          <div className="form__field">
-            <label htmlFor="login__username">
-              <svg className="icon">
-                <use xlinkHref="#icon-user"></use>
-              </svg>
-              <span className="hidden">Username</span>
-            </label>
-            <input
-              autoComplete="Email"
-              id="email"
-              type="text"
-              name="emeail"
-              className="form__input"
-              placeholder="Email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+      <div className="min-h-screen flex flex-col m-auto items-center justify-center bg-tq-base overflow-hidden">
+
+        <div
+          className="flex min-h-fit w-full max-w-3xl flex-col items-center rounded-2xl p-10 text-center md:block  md:p-20 md:bg-white"
+          ref={boxRef}
+        >
+          <h1 className="text-4xl font-bold text-tq-text md:m-6 md:text-6xl lg:text-7xl">
+            Hello There
+          </h1>
+          <h2 className="my-4 text-2xl font-normal text-tq-text md:m-6 md:text-3xl">
+            {' '}
+            Sign in to your account
+          </h2>
+          <div className="divide-gray-00 mx-auto mt-5 max-w-md divide-y md:mt-14">
+            <form
+              onSubmit={handleSubmit}
+              className="flex w-[70vw] flex-col gap-10 space-y-4 py-8 text-base leading-6 text-tq-surface sm:text-lg sm:leading-7 md:w-auto"
+            >
+              <div className="relative border-b-2 border-slate-600 ">
+                <input
+                  autoComplete="Email"
+                  id="email"
+                  type="text"
+                  name="emeail"
+                  className="focus:borer-rose-600 peer h-10 w-full bg-transparent font-medium text-tq-text placeholder-transparent focus:outline-none "
+                  placeholder="Email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <label
+                  for="email"
+                  className="text-sm peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
+                >
+                  Email Address
+                </label>
+              </div>
+              <div className="relative  border-b-2 border-slate-600 ">
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  className="focus:borer-rose-600 peer h-10 w-full bg-transparent font-medium text-tq-text  placeholder-transparent focus:outline-none "
+                  placeholder="Password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <label
+                  for="password"
+                  className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
+                >
+                  Password
+                </label>
+              </div>
+              <div className="relative">
+                <button
+                  className="rounded-md bg-tq-blue px-5 py-3 font-semibold text-white transition-colors hover:opacity-80"
+                  type="submit"
+                  value="Sign In"
+                >
+                  Submit
+                </button>
+              </div>
+              <a
+                href="/register"
+                className="font-medium text-slate-900 transition delay-150 ease-in-out hover:underline"
+              >
+                Not a member? Sign up now
+              </a>{' '}
+            </form>
           </div>
-
-          <div className="form__field">
-            <label htmlFor="login__password">
-              <svg className="icon">
-                <use xlinkHref="#icon-lock"></use>
-              </svg>
-              <span className="hidden">Password</span>
-            </label>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              className="form__input"
-              placeholder="Password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-
-            />
-          </div>
-
-          <div className="form__field">
-            <input type="submit" value="Sign In" />
-          </div>
-        </form>
-
-        <p className="text--center">
-          Not a member? <a href="/register">Sign up now</a>{' '}
-          <svg className="icon">
-            <use xlinkHref="#icon-arrow-right"></use>
-          </svg>
-        </p>
+        </div>
       </div>
-
-      <svg xmlns="http://www.w3.org/2000/svg" className="icons">
-        <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
-          <path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293H245q-52 0-84.5-37.5T128 1024V896q0-53 32.5-90.5T245 768h704L656 474q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" />
-        </symbol>
-        <symbol id="icon-lock" viewBox="0 0 1792 1792">
-          <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
-        </symbol>
-        <symbol id="icon-user" viewBox="0 0 1792 1792">
-          <path d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
-        </symbol>
-      </svg>
-    </body>
-    </div>
-
     </>
-
   );
 };
 
