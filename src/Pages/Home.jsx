@@ -12,6 +12,7 @@ import {
 import { FaQrcode, FaHouseChimney, FaRankingStar } from 'react-icons/fa6';
 import { ImLocation } from 'react-icons/im';
 import gsap from 'gsap/gsap-core';
+import Footer from '../components/Footer';
 
 const Home = () => {
   // const { user, logout } = UserAuth();
@@ -33,8 +34,8 @@ const Home = () => {
 
     gsap.to(nav, {
       opacity: 1,
-      duration: 0.9,
-      delay: 3.5,
+      duration: 0.3,
+      delay: 0.3,
       ease: 'power2.inOut',
     });
   }, []);
@@ -50,20 +51,6 @@ const Home = () => {
       console.log(e);
     }
   };
-
-  const qr = () => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="16"
-        width="14"
-        viewBox="0 0 448 512"
-      >
-        <path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80zM64 96v64h64V96H64zM0 336c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336zm64 16v64h64V352H64zM304 32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H304c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48zm80 64H320v64h64V96zM256 304c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s7.2-16 16-16s16 7.2 16 16v96c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s-7.2-16-16-16s-16 7.2-16 16v64c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V304zM368 480a16 16 0 1 1 0-32 16 16 0 1 1 0 32zm64 0a16 16 0 1 1 0-32 16 16 0 1 1 0 32z" />
-      </svg>
-    );
-  };
-
   const data = [
     {
       icon: <FcCalendar />,
@@ -74,14 +61,14 @@ const Home = () => {
     },
     {
       icon: <FcPositiveDynamic />,
-      url: '/LeaderBoard',
+      url: '/Leaderboard',
       title: 'Leader Board ',
       num: 1.8,
       classN: false,
     },
     {
       icon: <FcAssistant />,
-      url: '/ContactUs',
+      url: '/Contact',
       title: 'Contact Us ',
       num: 2.1,
       classN: false,
@@ -111,7 +98,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col m-auto items-center justify-start bg-tq-base p-6 overflow-hidden md:overflow-visible">
+      <div className="min-h-screen flex flex-col m-auto items-center justify-around bg-tq-base p-6 overflow-hidden md:overflow-visible">
         <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
           Taqneeq Fest
         </h1>
@@ -153,17 +140,7 @@ const Home = () => {
               />
             ))}
           </div>
-          <footer
-            className="w-full bg-white p-5 rounded-2xl md:hidden "
-            ref={navRef}
-          >
-            <div className="flex text-2xl flex-row flex-wrap items-center justify-evenly text-tq-text gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-              <FaHouseChimney />
-              <ImLocation />
-              <FaQrcode />
-              <FaRankingStar />
-            </div>
-          </footer>
+          <Footer num={4}></Footer>
         </div>
       </div>
     </>
@@ -187,9 +164,9 @@ const EventBox = ({ icon, url, title, num, classN }) => {
       <Card
         shadow={false}
         ref={card}
-        className={`group relative grid h-[33vw] min-w-full items-end  justify-center overflow-hidden text-center bg-white border border-tq-text rounded-md transition-transform `}
+        className={`group relative grid h-[33vw] min-w-full items-end  justify-center overflow-hidden text-center bg-white border border-tq-text rounded-md transition-transform m-auto `}
       >
-        <CardBody className="relative py-8 px-6 md:px-12 flex flex-col justify-center items-center m-auto md:gap-6  md:overflow-visible">
+        <CardBody className="relative py-2 px-3 md:px-12 flex flex-col justify-center items-center m-auto md:gap-6  md:overflow-visible">
           <h1 className="text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl text-tq-text mb-4 md:mb-6 font-medium leading-tight">
             {title}
           </h1>

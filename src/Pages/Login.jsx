@@ -30,8 +30,8 @@ const Login = () => {
 
     gsap.to(box, {
       opacity: 1,
-      duration: 1.5,
-      delay: 0.5,
+      duration: 0.5,
+      delay: 0.3,
       ease: 'power2.inOut',
     });
   }, []);
@@ -39,7 +39,6 @@ const Login = () => {
   return (
     <>
       <div className="min-h-screen flex flex-col m-auto items-center justify-center bg-tq-base overflow-hidden">
-
         <div
           className="flex min-h-fit w-full max-w-3xl flex-col items-center rounded-2xl p-10 text-center md:block  md:p-20 md:bg-white"
           ref={boxRef}
