@@ -22,8 +22,9 @@ function App() {
           <Route
             path="/Home"
             element={
-              //Remember to add protected routes
-              <Home />
+              <ProtectedRoutes>
+                <Home />
+              </ProtectedRoutes>
             }
           />
           <Route path="/Index" element={<Index />} />
@@ -33,43 +34,49 @@ function App() {
           <Route
             path="/my-qr"
             element={
-              //Add protected routes
-              <QR />
+              <ProtectedRoutes>
+                <QR />
+              </ProtectedRoutes>
             }
           />
           <Route
             path="/schedule"
             element={
-              //Add protected routes
-              <Schedule />
+              <ProtectedRoutes>
+                <Schedule />
+              </ProtectedRoutes>
             }
           />
           <Route
             path="/Sponsors"
             element={
-              //Add protected routes
+              <ProtectedRoutes>
               <Sponsor />
+              </ProtectedRoutes>
             }
           />
           <Route
             path="/Contact"
             element={
-              //Add protected routes
+              <ProtectedRoutes>
               <Contact />
+              </ProtectedRoutes>
             }
           />
           <Route
             path="/Location"
             element={
-              //Add protected routes
+              <ProtectedRoutes>
               <Location />
+              </ProtectedRoutes>
             }
           />
           <Route
             path="/Leaderboard"
             element={
-              //Add protected routes
+              <ProtectedRoutes>
               <Leaderboard />
+              </ProtectedRoutes>
             }
           />
         </Routes>

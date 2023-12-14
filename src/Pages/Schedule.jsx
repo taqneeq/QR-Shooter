@@ -16,7 +16,6 @@ const Schedule = () => {
       ease: 'power2.inOut',
     });
   }, []);
-
   const scheduleData = {
     '25th Dec': [
       {
@@ -118,9 +117,9 @@ const Schedule = () => {
           ))}
         </div>
 
-        <div className="mt-4" >
+        <div className="mt-4">
           {selectedDay && (
-            <div >
+            <div>
               <h2 className="text-lg font-semibold mb-2">{selectedDay}</h2>
               <div className="grid grid-cols-1 gap-4">
                 {scheduleData[selectedDay].map((event, index) => (
