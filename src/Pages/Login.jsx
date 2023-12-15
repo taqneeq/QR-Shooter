@@ -68,7 +68,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="text-sm peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
                 >
                   Email Address
@@ -86,7 +86,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
                 >
                   Password

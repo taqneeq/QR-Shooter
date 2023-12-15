@@ -2,8 +2,20 @@ import { React, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
 import gsap from 'gsap/gsap-core';
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from '@material-tailwind/react';
+
 const Schedule = () => {
   const [selectedDay, setSelectedDay] = useState('25th Dec');
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(!open);
 
   const boxRef = useRef(null);
   useLayoutEffect(() => {
@@ -98,7 +110,7 @@ const Schedule = () => {
         <Link to="/Home" className="flex items-center text-tq-blue">
           <BsArrowLeft className="mr-1" />
           Back to Home
-        </Link> 
+        </Link>
       </div>
       <div className="flex flex-col items-center pt-8">
         <div className="flex space-x-4">
@@ -119,7 +131,7 @@ const Schedule = () => {
 
         <div className="mt-4">
           {selectedDay && (
-            <div>
+            <div onClick={handleOpen}>
               <h2 className="text-lg font-semibold mb-2">{selectedDay}</h2>
               <div className="grid grid-cols-1 gap-4">
                 {scheduleData[selectedDay].map((event, index) => (
@@ -142,6 +154,24 @@ const Schedule = () => {
                         {event.time}
                       </p>
                     </div>
+                    <Dialog open={open} handler={handleOpen}>
+                      {' '}
+                      <img
+                        src={event.imageUrl}
+                        alt="Event Thumbnail"
+                        className=" w-full rounded-t-md"
+                      />
+                      <DialogHeader> {event.event}</DialogHeader>
+                      <DialogBody>{event.description}</DialogBody>
+                      <DialogFooter>
+                        <button
+                          onClick={handleOpen}
+                          className="w-full mx-auto text-white rounded-xl bg-blue-gray-700 py-2 max-w-[20%]  hover:opacity-90"
+                        >
+                          Close
+                        </button>
+                      </DialogFooter>
+                    </Dialog>
                   </div>
                 ))}
               </div>

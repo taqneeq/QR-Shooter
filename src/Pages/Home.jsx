@@ -1,7 +1,7 @@
 import { React, useLayoutEffect, useRef, useState } from 'react';
 // import { UserAuth } from '../context/AuthContext';
 import { Carousel } from '@material-tailwind/react';
-import { Card, CardBody } from '@material-tailwind/react';
+import { Card, CardBody, Avatar } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 import {
   FcCalendar,
@@ -57,51 +57,52 @@ const Home = () => {
       url: '/Schedule',
       title: 'Schedule ',
       num: 1.5,
-      classN: true,
+      classN: 2,
     },
     {
       icon: <FcPositiveDynamic />,
       url: '/Leaderboard',
       title: 'Leader Board ',
       num: 1.8,
-      classN: false,
-    },
-    {
-      icon: <FcAssistant />,
-      url: '/Contact',
-      title: 'Contact Us ',
-      num: 2.1,
-      classN: false,
+      classN: 1,
     },
     {
       icon: <FaQrcode />,
       url: '/my-qr',
       title: 'My QR ',
-      num: 2.4,
-      classN: true,
+      num: 2.1,
+      classN: 3,
     },
+    {
+      icon: <FcAssistant />,
+      url: '/Contact',
+      title: 'Contact Us ',
+      num: 2.4,
+      classN: 1,
+    },
+
     {
       icon: <FcMoneyTransfer />,
       url: '/Sponsors',
       title: 'Sponsors ',
       num: 2.7,
-      classN: true,
-    },
-    {
-      icon: <ImLocation />,
-      url: '/Location',
-      title: 'Location ',
-      num: 3.0,
-      classN: false,
+      classN: 2,
     },
   ];
 
   return (
     <>
       <div className="min-h-screen flex flex-col m-auto items-center justify-around bg-tq-base p-6 overflow-hidden md:overflow-visible">
-        <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
-          Taqneeq Fest
-        </h1>
+        <div className=" flex flex-row justify-center gap-5 items-start">
+          <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
+            Taqneeq Fest
+          </h1>
+          <Avatar
+            src="https://thispersondoesnotexist.com/"
+            alt="avatar"
+            className=" border-4 border-gray-300"
+          />  
+        </div>
         <div className="mx-auto flex min-h-fit w-full flex-col gap-5 px-6 lg:px-0 overflow-hidden  md:overflow-visible max-w-7xl">
           <Carousel
             transition={{ duration: 2 }}
@@ -128,7 +129,7 @@ const Home = () => {
             />
           </Carousel>
 
-          <div className="grid grid-cols-3 min-w-full gap-6 w-full max-w-7xl overflow-hidden  md:overflow-visible">
+          <div className="grid grid-cols-3 min-w-full gap-4 w-full max-w-7xl">
             {data.map((item, index) => (
               <EventBox
                 key={index}
@@ -160,11 +161,16 @@ const EventBox = ({ icon, url, title, num, classN }) => {
   }, [delay]);
 
   return (
-    <a href={url} className={`${classN ? 'col-span-2' : ''} `}>
+    <a
+      href={url}
+      className={`${
+        classN === 2 ? 'col-span-2' : classN === 3 ? 'col-span-3' : ''
+      }`}
+    >
       <Card
-        shadow={false}
+        shadow={1}
         ref={card}
-        className={`group relative grid h-[33vw] min-w-full items-end  justify-center overflow-hidden text-center bg-white border border-tq-text rounded-md transition-transform m-auto `}
+        className={`group relative grid h-[33vw] min-w-full items-end  justify-center overflow-hidden text-center bg-white drop-shadow-xl  transition-transform m-auto`}
       >
         <CardBody className="relative py-2 px-3 md:px-12 flex flex-col justify-center items-center m-auto md:gap-6  md:overflow-visible">
           <h1 className="text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl text-tq-text mb-4 md:mb-6 font-medium leading-tight">

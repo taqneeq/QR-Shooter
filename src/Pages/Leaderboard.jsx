@@ -95,6 +95,7 @@ const Leaderboard = () => {
           </div>
           <hr className=" border border-gray-200 w-full"></hr>
           <div className=" flex flex-row items-center justify-between w-full min-h-fit max-w-2x">
+            {/* Put the top 3 ppl also to display */}
             <p>4</p>
             <h1 className="">Jegathiswaran Ramakrishnan</h1>
             <Avatar

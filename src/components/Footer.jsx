@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { ImLocation } from 'react-icons/im';
-import { FaQrcode, FaHouseChimney, FaRankingStar } from 'react-icons/fa6';
+import {
+  FaQrcode,
+  FaHouseChimney,
+  FaRankingStar,
+  FaCalendarDays,
+} from 'react-icons/fa6';
 import gsap from 'gsap';
 
 export default function Footer(props) {
@@ -17,14 +22,17 @@ export default function Footer(props) {
   }, [delay]);
 
   return (
-    <footer className="w-full bg-white p-5 rounded-2xl md:hidden" ref={card}>
+    <footer
+      className="w-full bg-white p-5 rounded-2xl md:hidden mt-6"
+      ref={card}
+    >
       <div className="flex text-xl flex-row flex-wrap items-center justify-evenly text-tq-text gap-y-6 gap-x-12 bg-white text-center md:justify-between">
         <a href="/Home">
           <FaHouseChimney />
         </a>
         <a href="/Location">
           {' '}
-          <ImLocation />
+          <FaCalendarDays />
         </a>
         <a href="/my-qr">
           {' '}

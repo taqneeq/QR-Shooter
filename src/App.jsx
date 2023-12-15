@@ -11,7 +11,6 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import Schedule from './Pages/Schedule';
 import Sponsor from './Pages/Sponsors';
 import Contact from './Pages/Contact';
-import Location from './Pages/Location';
 import Leaderboard from './Pages/Leaderboard';
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
             path="/Home"
             element={
               <ProtectedRoutes>
+                {' '}
                 <Home />
               </ProtectedRoutes>
             }
@@ -51,7 +51,7 @@ function App() {
             path="/Sponsors"
             element={
               <ProtectedRoutes>
-              <Sponsor />
+                <Sponsor />
               </ProtectedRoutes>
             }
           />
@@ -59,15 +59,7 @@ function App() {
             path="/Contact"
             element={
               <ProtectedRoutes>
-              <Contact />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/Location"
-            element={
-              <ProtectedRoutes>
-              <Location />
+                <Contact />
               </ProtectedRoutes>
             }
           />
@@ -75,7 +67,7 @@ function App() {
             path="/Leaderboard"
             element={
               <ProtectedRoutes>
-              <Leaderboard />
+                <Leaderboard />
               </ProtectedRoutes>
             }
           />

@@ -3,6 +3,7 @@ import { React, useLayoutEffect, useRef, useState } from 'react';
 import { Carousel } from '@material-tailwind/react';
 import { Card, CardBody } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 import { CiInstagram, CiLinkedin, CiMail } from 'react-icons/ci';
 import {
   FcCalendar,
@@ -163,20 +164,17 @@ const Contact = () => {
             <p className="text-tq-text text-xl">@taqneeqfest</p>
           </a>
         </div>
-
-        <div className="mx-auto flex min-h-fit w-full flex-col gap-5 px-6 lg:px-0 overflow-hidden  md:overflow-visible max-w-7xl">
-          <footer
-            className="w-full bg-white p-5 rounded-2xl md:hidden"
-            ref={navRef}
-          >
-            <div className="flex text-2xl flex-row flex-wrap items-center justify-evenly text-tq-text gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-              <FaHouseChimney />
-              <ImLocation />
-              <FaQrcode />
-              <FaRankingStar />
-            </div>
-          </footer>
-        </div>
+        <h1>Dhoond Lo hume</h1>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9463375276578!2d72.83501097600883!3d19.110009950902374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9b888ae67fd%3A0xe0b9538d623ac5d2!2sMukesh%20Patel%20School%20of%20Technology%20Management%20%26%20Engineering!5e0!3m2!1sen!2sin!4v1702571205771!5m2!1sen!2sin"
+          width="auto"
+          height="auto"
+          className=" border-0 my-10"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <Footer />
       </div>
     </>
   );
