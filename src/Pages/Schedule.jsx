@@ -1,6 +1,5 @@
 import { React, useLayoutEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { BsArrowLeft } from 'react-icons/bs';
+import Footer from '../components/Footer';
 import gsap from 'gsap/gsap-core';
 import {
   Button,
@@ -106,12 +105,6 @@ const Schedule = () => {
 
   return (
     <div className="min-h-screen flex flex-col m-auto items-center justify-start bg-tq-base p-6 overflow-hidden md:overflow-visible">
-      <div className="flex items-center mb-4">
-        <Link to="/Home" className="flex items-center text-tq-blue">
-          <BsArrowLeft className="mr-1" />
-          Back to Home
-        </Link>
-      </div>
       <div className="flex flex-col items-center pt-8">
         <div className="flex space-x-4">
           {Object.keys(scheduleData).map((day, index) => (
@@ -178,6 +171,7 @@ const Schedule = () => {
             </div>
           )}
         </div>
+        <Footer></Footer>
       </div>
     </div>
   );

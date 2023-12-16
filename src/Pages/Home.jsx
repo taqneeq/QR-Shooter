@@ -97,11 +97,13 @@ const Home = () => {
           <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
             Taqneeq Fest
           </h1>
-          <Avatar
-            src="https://thispersondoesnotexist.com/"
-            alt="avatar"
-            className=" border-4 border-gray-300"
-          />  
+          <a href="/User">
+            <Avatar
+              src="https://thispersondoesnotexist.com/"
+              alt="avatar"
+              className=" border-4 border-gray-300"
+            />
+          </a>
         </div>
         <div className="mx-auto flex min-h-fit w-full flex-col gap-5 px-6 lg:px-0 overflow-hidden  md:overflow-visible max-w-7xl">
           <Carousel
@@ -109,14 +111,9 @@ const Home = () => {
             autoplay
             loop
             autoplayDelay={10000}
-            className="rounded-xl mx-auto max-h-[10rem] md:min-h-[70vh] overflow-hidden "
+            className="rounded-xl mx-auto max-h-[10rem] md:min-h-[70vh] overflow-hidden object-cover "
             ref={boxRef}
           >
-            <img
-              src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-              alt="image 1"
-              className="h-full w-full object-cover"
-            />
             <img
               src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
               alt="image 2"

@@ -8,12 +8,12 @@ const QR = () => {
 
   return (
     <div className="bg-tq-base min-h-screen flex rounded-3xl">
-      <div className=" bg-white h-fit m-auto text-lg flex flex-col justify-center items-center p-">
+      <div className=" bg-white h-fit rounded-3xl m-auto text-lg flex flex-col justify-center items-center p-3">
         {user.uid ? (
           <div className="flex flex-col items-center">
             <h1 className="text-3xl text-tq-text mb-4">
               Hey, {user.displayName || 'User'}
-            </h1> 
+            </h1>
             <div className="shadow-tq-surface rounded-lg shadow-md p-4 mb-8">
               <QRCode
                 value={user.uid ? user.uid : 'Loading..Please try again'}

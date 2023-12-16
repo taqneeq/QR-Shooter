@@ -12,6 +12,8 @@ import Schedule from './Pages/Schedule';
 import Sponsor from './Pages/Sponsors';
 import Contact from './Pages/Contact';
 import Leaderboard from './Pages/Leaderboard';
+import User from './Pages/User';
+
 function App() {
   return (
     <AuthContextProvider>
@@ -68,6 +70,14 @@ function App() {
             element={
               <ProtectedRoutes>
                 <Leaderboard />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/User"
+            element={
+              <ProtectedRoutes>
+                <User />
               </ProtectedRoutes>
             }
           />

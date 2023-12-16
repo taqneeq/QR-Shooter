@@ -67,12 +67,9 @@ const Contact = () => {
     <>
       <div className="min-h-screen flex flex-col m-auto items-center justify-around bg-tq-base p-6 overflow-hidden md:overflow-visible">
         <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
-          Taqneeq Fest
-        </h1>
-
-        <h1 className="text-3xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
           Contact Us
         </h1>
+
         <div className="divide-gray-00 mx-auto mt-5 max-w-md divide-y md:mt-14">
           <form
             onSubmit={handleSubmit}
@@ -91,7 +88,7 @@ const Contact = () => {
               />
               <label
                 for="email"
-                className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
+                className="text-base peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
               >
                 Email ID
               </label>
@@ -124,43 +121,41 @@ const Contact = () => {
               />
               <label
                 for="message"
-                className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
+                className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600 "
               >
                 Message
               </label>
             </div>
-            <div className="relative">
-              <button
-                className="rounded-md bg-tq-blue px-5 py-3 font-semibold text-white transition-colors hover:opacity-80"
-                type="submit"
-                value="Sign In"
-              >
-                Submit
-              </button>
-            </div>
+            <button
+              className="rounded-md bg-tq-blue px-5 py-3 font-semibold text-white transition-colors hover:opacity-80 w-full max-w-[50%]"
+              type="submit"
+              value="Sign In"
+            >
+              Submit
+            </button>
           </form>
         </div>
 
-        <div className="flex flex-col gap-2 pb-5">
+        <div className="flex flex-col gap-2 pb-5 w-full items-start max-w-[75vw]">
           <a
             className="flex flex-row items-center gap-2"
             href="mailto:contact@taqneeqfest.com"
           >
-            <CiMail size={50} />
+            <CiMail size={40} />
             <p className="text-tq-text text-xl">contact@taqneeqfest.com</p>
           </a>
           <a
             className="flex flex-row items-center gap-2"
             href="https://instagram.com/taqneeqfest/"
           >
-            <CiInstagram size={50} />
+            <CiInstagram size={40} />
             <p className="text-tq-text text-xl">@taqneeqfest</p>
           </a>
           <a
             className="flex flex-row items-center gap-2"
             href="https://www.linkedin.com/company/taqneeqfest/"
           >
-            <CiLinkedin size={50} />
+            <CiLinkedin size={40} />
             <p className="text-tq-text text-xl">@taqneeqfest</p>
           </a>
         </div>

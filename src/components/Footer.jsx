@@ -30,7 +30,7 @@ export default function Footer(props) {
         <a href="/Home">
           <FaHouseChimney />
         </a>
-        <a href="/Location">
+        <a href="/Schedule">
           {' '}
           <FaCalendarDays />
         </a>
