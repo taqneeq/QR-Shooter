@@ -13,7 +13,9 @@ import Sponsor from './Pages/Sponsors';
 import Contact from './Pages/Contact';
 import Leaderboard from './Pages/Leaderboard';
 import User from './Pages/User';
-
+import OCIndex from './Pages/OC';
+import OCLogin from './Pages/OC/login';
+import OCHome from './Pages/OC/Home';
 function App() {
   return (
     <AuthContextProvider>
@@ -66,6 +68,14 @@ function App() {
             }
           />
           <Route
+            path="/Location"
+            element={
+              <ProtectedRoutes>
+                <Location />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
             path="/Leaderboard"
             element={
               <ProtectedRoutes>
@@ -81,6 +91,16 @@ function App() {
               </ProtectedRoutes>
             }
           />
+          <Route path="/oc" element={<OCIndex />}></Route>
+          <Route path="oc/login" element={<OCLogin />}></Route>
+          <Route
+            path="oc/home"
+            element={
+              <ProtectedRoutes>
+                <OCHome />
+              </ProtectedRoutes>
+            }
+          ></Route>
         </Routes>
       </Router>
     </AuthContextProvider>
