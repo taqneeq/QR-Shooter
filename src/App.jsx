@@ -15,7 +15,7 @@ import Leaderboard from './Pages/Leaderboard';
 import User from './Pages/User';
 import OCIndex from './Pages/OC';
 import OCLogin from './Pages/OC/login';
-import OCHome from './Pages/OC/Home';
+import OCHome from './Pages/OC/home';
 function App() {
   return (
     <AuthContextProvider>
