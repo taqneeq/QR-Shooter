@@ -30,8 +30,8 @@ const Register = () => {
 
     gsap.to(box, {
       opacity: 1,
-      duration: 1.5,
-      delay: 0.5,
+      duration: 0.5,
+      delay: 0.3,
       ease: 'power2.inOut',
     });
   }, []);

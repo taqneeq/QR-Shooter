@@ -3,24 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Causten-SO';
-  src: url('/fonts/Causten-Semi-Bold-Oblique.ttf');
-}
-@font-face {
   font-family: 'Causten-S';
   src: url('fonts/Causten-Semi-Bold.ttf');
 }
-@font-face {
-  font-family: 'VanguardCF';
-  src: url('fonts/VanguardCF-Bold.otf');
-}
-
 * {
-  font-family: 'Causten-S', sans-serif;
-}
-h1,
-h2,
-h3,
-h4 {
   font-family: 'Causten-S', sans-serif;
 }
