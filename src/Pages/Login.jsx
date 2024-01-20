@@ -9,14 +9,14 @@ const db = getFirestore();
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { SignIn, user } = UserAuth();
+  const { SignIn } = UserAuth();
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const boxRef = useRef(null);
 
-  const linkUidToFirestore = async (uid) => {
+  const linkUidToFirestore = async (uid, email) => {
     const userRef = doc(db, 'Users', uid);
-    await setDoc(userRef, { uid, email, points: 0}, { merge: true });
+    await setDoc(userRef, { uid, email, points: 0 }, { merge: true });
   };
 
   const handleSubmit = async (e) => {
@@ -24,9 +24,9 @@ const Login = () => {
     setError('');
 
     try {
-      await SignIn(email, password);
-      if (user) {
-        await linkUidToFirestore(user.uid);
+      const response = await SignIn(email, password);
+      if (response.user) {
+        await linkUidToFirestore(response.user.uid, email);
         navigate('/Home');
       }
     } catch (e) {
