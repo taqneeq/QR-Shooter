@@ -1,6 +1,5 @@
-import { React, useLayoutEffect, useRef, useState } from 'react';
+import { useState, useRef } from 'react';
 import Footer from '../components/Footer';
-import gsap from 'gsap/gsap-core';
 import {
   Button,
   Dialog,
@@ -11,22 +10,27 @@ import {
 
 const Schedule = () => {
   const [selectedDay, setSelectedDay] = useState('25th Dec');
-
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => setOpen(!open);
-
-  const boxRef = useRef(null);
-  useLayoutEffect(() => {
-    const box = boxRef.current;
-
-    gsap.to(box, {
-      opacity: 1,
-      duration: 0.9,
-      delay: 0.5,
-      ease: 'power2.inOut',
+  const handleOpen = () => {
+    setOpen((prevOpen) => {
+      return !prevOpen;
     });
-  }, []);
+  };
+  
+
+  // const boxRef = useRef(null);
+  // useLayoutEffect(() => {
+  //   const box = boxRef.current;
+
+  //   gsap.to(box, {
+  //     opacity: 1,
+  //     duration: 0.9,
+  //     delay: 0.5,
+  //     ease: 'power2.inOut',
+  //   });
+  // }, []);
+
   const scheduleData = {
     '25th Dec': [
       {
@@ -124,13 +128,14 @@ const Schedule = () => {
 
         <div className="mt-4">
           {selectedDay && (
-            <div onClick={handleOpen}>
+            <div>
               <h2 className="text-lg font-semibold mb-2">{selectedDay}</h2>
               <div className="grid grid-cols-1 gap-4">
                 {scheduleData[selectedDay].map((event, index) => (
                   <div
                     key={index}
                     className="flex bg-white rounded-lg shadow-md p-4 mb-4"
+                    onClick={() => handleOpen(index)}
                   >
                     <img
                       src={event.imageUrl}
@@ -148,21 +153,22 @@ const Schedule = () => {
                       </p>
                     </div>
                     <Dialog open={open} handler={handleOpen}>
-                      {' '}
                       <img
                         src={event.imageUrl}
                         alt="Event Thumbnail"
                         className=" w-full rounded-t-md"
                       />
-                      <DialogHeader> {event.event}</DialogHeader>
+                      <DialogHeader>{event.event}</DialogHeader>
                       <DialogBody>{event.description}</DialogBody>
                       <DialogFooter>
-                        <button
+                        <Button
+                          variant="text"
+                          color="red"
                           onClick={handleOpen}
-                          className="w-full mx-auto text-white rounded-xl bg-blue-gray-700 py-2 max-w-[20%]  hover:opacity-90"
+                          className="mr-1"
                         >
-                          Close
-                        </button>
+                          <span>Cancel</span>
+                        </Button>
                       </DialogFooter>
                     </Dialog>
                   </div>
