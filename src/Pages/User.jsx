@@ -4,6 +4,7 @@ import { Avatar } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import gsap from 'gsap/gsap-core';
+import { FaUserCircle } from 'react-icons/fa';
 
 const User = () => {
   // const { user, logout } = UserAuth();
@@ -45,15 +46,12 @@ const User = () => {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col m-auto items-center justify-around bg-tq-base p-6 overflow-hidden md:overflow-visible">
-        <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
+      <div className="min-h-screen flex flex-col m-auto items-center justify-between md:justify-center bg-tq-base p-6  ">
+        <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl ">
           Welcome User
         </h1>
-        <div className=" flex flex-col gap-10 items-center max-w-[80%] text-center">
-          <Avatar
-            src="https://thispersondoesnotexist.com/"
-            className=" w-full"
-          ></Avatar>
+        <div className=" flex flex-col gap-10 items-center max-w-[80%] text-center min-h-fit">
+          <FaUserCircle className=" text-[20vw] md:text-[10vw] " />
           <p>
             Your Registered Email ID:{' '}
             <span className=" italic text-tq-surface ">
