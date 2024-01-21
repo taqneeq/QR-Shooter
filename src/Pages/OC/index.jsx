@@ -1,20 +1,17 @@
 import React from 'react';
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
-import "../../styles/index.css"
+import '../../styles/index.css';
 import { UserAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-
 const OCIndex = () => {
-  const {user}=UserAuth();
-  const Navigate=useNavigate();
-  if(user)
-  {
-    Navigate('/oc/home')
-  }
-  else{
-    Navigate('/oc/login')
+  const { user } = UserAuth();
+  const Navigate = useNavigate();
+  if (user) {
+    Navigate('/oc/home');
+  } else {
+    Navigate('/oc/login');
   }
   const boxRef = useRef(null);
   useLayoutEffect(() => {
@@ -36,7 +33,7 @@ const OCIndex = () => {
           ref={boxRef}
         >
           <h1 className=" text-4xl font-black text-gray-900 md:text-slate-200 mb-5 md:mb-20 md:text-6xl lg:text-7xl">
-            Welcome to <br></br>Taqneeq Fest's <br /> QR Shooter OC 
+            Welcome to <br></br>Taqneeq Fest's <br /> QR Shooter OC
           </h1>
 
           <div className="md:w-[calc(-0.3rem + 50vw)] mx-auto mt-10 flex w-[40vw] flex-col font-bold text-white items-center justify-between gap-9 md:flex-row">

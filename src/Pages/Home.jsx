@@ -10,6 +10,7 @@ import {
   FcMoneyTransfer,
 } from 'react-icons/fc';
 import { FaQrcode, FaHouseChimney, FaRankingStar } from 'react-icons/fa6';
+import { FaUserCircle } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
 import gsap from 'gsap/gsap-core';
 import Footer from '../components/Footer';
@@ -94,15 +95,11 @@ const Home = () => {
     <>
       <div className="min-h-screen flex flex-col m-auto items-center justify-around bg-tq-base p-6 overflow-hidden md:overflow-visible">
         <div className=" flex flex-row justify-center gap-5 items-start">
-          <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-black text-gray-900 text-center md:text-slate-200 mb-5 md:mb-14 md:text-6xl lg:text-7xl align-bottom">
             Taqneeq Fest
           </h1>
           <a href="/User">
-            <Avatar
-              src="https://thispersondoesnotexist.com/"
-              alt="avatar"
-              className=" border-4 border-gray-300"
-            />
+            <FaUserCircle className=" text-3xl mt-1 md:mt-3 md:text-5xl align-bottom" />
           </a>
         </div>
         <div className="mx-auto flex min-h-fit w-full flex-col gap-5 px-6 lg:px-0 overflow-hidden  md:overflow-visible max-w-7xl">
