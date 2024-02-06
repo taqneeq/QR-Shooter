@@ -1,10 +1,7 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import gsap from 'gsap/gsap-core';
-import { doc, setDoc, getFirestore } from 'firebase/firestore';
-
-const db = getFirestore();
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,21 +11,13 @@ const Login = () => {
   const [error, setError] = useState('');
   const boxRef = useRef(null);
 
-  const linkUidToFirestore = async (uid, email) => {
-    const userRef = doc(db, 'Users', uid);
-    await setDoc(userRef, { uid, email, points: 0 }, { merge: true });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     try {
-      const response = await SignIn(email, password);
-      if (response.user) {
-        await linkUidToFirestore(response.user.uid, email);
-        navigate('/Home');
-      }
+      await SignIn(email, password);
+      navigate('/Home');
     } catch (e) {
       setError(e.message);
       console.log(e.message);

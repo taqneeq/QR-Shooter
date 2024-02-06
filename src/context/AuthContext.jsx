@@ -10,40 +10,71 @@ import { Auth } from '../firebase';
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
-  const createUser = (email, password) => {
-    createUserWithEmailAndPassword(Auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
-
-  const logout = () => {
-    return signOut(Auth);
-  };
-
-  const SignIn = (email, password) => {
-    return signInWithEmailAndPassword(Auth, email, password);
-  };
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  let unsubscribe;
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(Auth, (currentUser) => {
-      console.log(currentUser);
+    unsubscribe = onAuthStateChanged(Auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
+
     return () => {
-      unsubscribe();
+      if (unsubscribe) {
+        unsubscribe();
+      }
     };
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      const intervalId = setInterval(async () => {
+        try {
+          await user.getIdToken(true);
+        } catch (error) {
+          console.error("Error refreshing token:", error.message);
+        }
+      }, 3600000);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [user]);
+
+  const createUser = async (email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(Auth, email, password);
+      setUser(userCredential.user);
+    } catch (error) {
+      console.error("Error creating user:", error.message);
+      throw error;
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await signOut(Auth);
+      setUser(null);
+    } catch (error) {
+      console.error("Error signing out:", error.message);
+      throw error;
+    }
+  };
+
+  const SignIn = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(Auth, email, password);
+      setUser(userCredential.user);
+    } catch (error) {
+      console.error("Error signing in:", error.message);
+      throw error;
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ createUser, user, logout, SignIn }}>
+    <UserContext.Provider value={{ createUser, user, logout, SignIn, loading }}>
       {children}
     </UserContext.Provider>
   );

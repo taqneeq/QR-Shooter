@@ -1,33 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserAuth } from '../context/AuthContext'; // Import UserAuth instead of createUser
-import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
+import { doc, setDoc, getFirestore } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { createUser } = UserAuth(); // Destructure createUser from the UserAuth hook
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const boxRef = useRef(null);
+
+  const db = getFirestore();
+  const auth = getAuth();
+
+  const linkUidToFirestore = async (uid, email) => {
+    const userRef = doc(db, 'Users', uid);
+    await setDoc(userRef, { uid, email, points: 0, type: 'participant' }, { merge: true });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     try {
-      await createUser(email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      await linkUidToFirestore(user.uid, email);
       navigate('/Home');
     } catch (e) {
       setError(e.message);
-      console.log(e.message);
+      console.error(e.message);
     }
   };
-  const boxRef = useRef(null);
-  useLayoutEffect(() => {
+
+  useEffect(() => {
     const box = boxRef.current;
     gsap.set(box, { opacity: 0 });
-
     gsap.to(box, {
       opacity: 1,
       duration: 0.5,
@@ -51,36 +61,36 @@ const Register = () => {
               onSubmit={handleSubmit}
               className="flex w-[70vw] flex-col gap-10 space-y-4 py-8 text-base leading-6 text-tq-surface sm:text-lg sm:leading-7 md:w-auto"
             >
-              <div className="relative border-b-2 border-slate-600 ">
+              <div className="relative border-b-2 border-slate-600">
                 <input
                   autoComplete="username"
                   id="email"
                   type="text"
                   name="username"
-                  className="focus:borer-rose-600 peer h-10 w-full bg-transparent font-medium text-tq-text placeholder-transparent focus:outline-none "
+                  className="focus:border-rose-600 peer h-10 w-full bg-transparent font-medium text-tq-text placeholder-transparent focus:outline-none "
                   placeholder="Username"
                   required
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
                 >
                   Username
                 </label>
               </div>
-              <div className="relative  border-b-2 border-slate-600 ">
+              <div className="relative border-b-2 border-slate-600">
                 <input
                   id="password"
                   type="password"
                   name="password"
-                  className="focus:borer-rose-600 peer h-10 w-full bg-transparent font-medium text-tq-text placeholder-transparent focus:outline-none "
+                  className="focus:border-rose-600 peer h-10 w-full bg-transparent font-medium text-tq-text placeholder-transparent focus:outline-none "
                   placeholder="Password"
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="text-md peer-placeholder-shown:text-slate-440 absolute -top-6 left-0 text-slate-700 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-xl peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-600"
                 >
                   Password
